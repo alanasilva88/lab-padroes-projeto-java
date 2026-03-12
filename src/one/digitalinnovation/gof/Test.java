@@ -7,6 +7,7 @@ import one.digitalinnovation.gof.singleton.SingletonLazyHolder;
 import one.digitalinnovation.gof.strategy.Comportamento;
 import one.digitalinnovation.gof.strategy.ComportamentoAgressivo;
 import one.digitalinnovation.gof.strategy.ComportamentoDefensivo;
+import one.digitalinnovation.gof.strategy.ComportamentoFurtivo;
 import one.digitalinnovation.gof.strategy.ComportamentoNormal;
 import one.digitalinnovation.gof.strategy.Robo;
 
@@ -15,6 +16,8 @@ public class Test {
 	public static void main(String[] args) {
 		
 		// Singleton
+
+		System.out.println("=== TESTE SINGLETON ===");
 		
 		SingletonLazy lazy = SingletonLazy.getInstancia();
 		System.out.println(lazy);
@@ -32,8 +35,11 @@ public class Test {
 		System.out.println(lazyHolder);
 		
 		// Strategy
+
+		System.out.println("=== TESTE STRATEGY ===");
 		
 		Comportamento defensivo = new ComportamentoDefensivo();
+		Comportamento furtivo = new ComportamentoFurtivo();
 		Comportamento normal = new ComportamentoNormal();
 		Comportamento agressivo = new ComportamentoAgressivo();
 		
@@ -47,8 +53,12 @@ public class Test {
 		robo.mover();
 		robo.mover();
 		robo.mover();
+		robo.setComportamento(furtivo);
+		robo.mover();
 		
 		// Facade
+
+		System.out.println("=== TESTE FACADE ===");
 		
 		Facade facade = new Facade();
 		facade.migrarCliente("Venilton", "14801788");
